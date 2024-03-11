@@ -22,6 +22,13 @@ export const authConfig = {
                 return session;
             }
         },
+        // async redirect({ url, baseUrl }) {
+        //     // Allows relative callback URLs
+        //     if (url.startsWith("/")) return `${baseUrl}${url}`
+        //     // Allows callback URLs on the same origin
+        //     else if (new URL(url).origin === baseUrl) return url
+        //     return baseUrl
+        // },
         authorized({ auth, request }) {
             const user = auth?.user;
             const isOnAdminPanel = request.nextUrl?.pathname.startsWith("/admin");
@@ -29,7 +36,7 @@ export const authConfig = {
             const isOnLoginPage = request.nextUrl?.pathname.startsWith("/login");
 
             if (isOnAdminPanel && !user?.isAdmin) {
-                return false
+                return Response.redirect(new URL("/", request.nextUrl))
             }
 
             if (isOnBlogPage && !user) {
