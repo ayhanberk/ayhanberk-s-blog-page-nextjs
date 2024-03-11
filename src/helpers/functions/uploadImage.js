@@ -17,7 +17,7 @@ const UploadImage = async (file, type) => {
     }
 
     try {
-        const { url } = await put(`${type}/` + filename, buffer, { access: 'public' });
+        const { url } = await put(`public/${type}/` + filename, buffer, { access: 'public' });
 
         console.log(url)
         // await writeFile(
