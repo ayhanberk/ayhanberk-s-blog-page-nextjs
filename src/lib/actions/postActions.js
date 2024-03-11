@@ -21,7 +21,8 @@ export const addPost = async (prevState, formData) => {
             title,
             body,
             slug,
-            img: imgName.filename || `https://placehold.co/600x400/${emptyColor}/${emptyColor}.png`,
+            // img: imgName.filename || `https://placehold.co/600x400/${emptyColor}/${emptyColor}.png`,
+            img: imgName.url || `https://placehold.co/600x400/${emptyColor}/${emptyColor}.png`,
             userId
         });
         await newPost.save();

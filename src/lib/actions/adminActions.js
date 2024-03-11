@@ -23,7 +23,8 @@ export const addUser = async (previousState, formData) => {
             username,
             email,
             password: hashedPassword,
-            user_avatar: avatarName.filename || `https://placehold.co/600x400/${emptyColor}/${emptyColor}.png`,
+            // user_avatar: avatarName.filename || `https://placehold.co/600x400/${emptyColor}/${emptyColor}.png`,
+            user_avatar: avatarName.url || `https://placehold.co/600x400/${emptyColor}/${emptyColor}.png`,
             isAdmin,
         })
 
