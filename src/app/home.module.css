@@ -1,0 +1,112 @@
+.container {
+    position: relative;
+    display: flex;
+    gap: 100px;
+}
+
+.textContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.title {
+    font-size: 96px;
+    color: var(--bigText);
+}
+
+.desc {
+    font-size: 20px;
+    color: var(--textSoft);
+
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+
+}
+
+.buttons .button {
+    padding: 20px;
+    min-width: 120px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: var(--btn);
+    font-size: 16px;
+    transition: color 0.8s ease;
+}
+
+.buttons .button:hover {
+    background-color: var(--placeholder);
+    color: var(--btn);
+}
+
+.buttons .button:first-child {
+    background-color: var(--btn);
+    color: var(--textSoft);
+
+}
+
+.buttons .button:first-child:hover {
+    background-color: var(--placeholder);
+    color: var(--textSoft);
+    transition: color 0.8s ease;
+}
+
+.brands {
+    width: 500px;
+    height: 50px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.brands a {
+    position: relative;
+    padding: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    color: var(--btn);
+    font-size: 16px;
+    transition: color 0.8s ease;
+}
+
+
+.imgContainer {
+    flex: 1;
+    position: relative;
+}
+
+.mainImg {
+    border-radius: 20px;
+
+}
+
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 64px;
+    }
+
+    .brands {
+        width: 100%;
+    }
+
+}

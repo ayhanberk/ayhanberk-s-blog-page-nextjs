@@ -1,0 +1,20 @@
+:root {
+    --bg: #334b71;
+    /* --bg: #344A70; */
+    --bgSoft: #386E90;
+
+    --placeholder: #87B1B0;
+    --bigText: #FFFFFF;
+    --text: #87B1B0;
+    --textSoft: #e6e6e6;
+    --github-text: #fafbfc;
+    --adminTextColor: #fff;
+    --btnText: #CDD3D0;
+
+    --navBtn: #87B1B0;
+    --btn: #386E90;
+    --deleteBtn: linear-gradient(144deg, #cb5c49, #ff0000 60%, #e93f3f);
+    --addBtn: linear-gradient(144deg, #1794c5, #3d63a4 30%, #2f82b6 60%, #61d9d7);
+    --github-btn: #2b3137;
+
+}

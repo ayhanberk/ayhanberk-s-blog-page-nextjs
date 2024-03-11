@@ -1,0 +1,147 @@
+.container {
+    position: relative;
+    width: 100%;
+    padding: 40px;
+    background: var(--bgSoft);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px var(--bgSoft);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* inputs */
+.container h1 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: start;
+}
+
+.container .inputBox {
+    position: relative;
+}
+
+.container .inputBox input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+.container .inputBox textarea {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+    font-family: sans-serif;
+
+}
+
+.container .inputBox label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: var(--placeholder);
+    pointer-events: none;
+    transition: .5s;
+}
+
+.container .inputBox label span {
+    color: red;
+}
+
+#img label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: var(--placeholder);
+    pointer-events: none;
+    transition: .5s;
+}
+
+.container .inputBox input:focus~label,
+.container .inputBox input:valid~label {
+    top: -20px;
+    left: 0;
+    color: var(--placeholder);
+    font-size: 12px;
+}
+
+.container .inputBox textarea:focus~label,
+.container .inputBox textarea:valid~label {
+    top: -20px;
+    left: 0;
+    color: var(--placeholder);
+    font-size: 12px;
+}
+
+/* Inputs end */
+
+/* Button */
+.postAdd {
+    align-items: center;
+    background-image: var(--addBtn);
+    border: 0;
+    border-radius: 8px;
+    box-shadow: var(--bg) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    display: flex;
+    font-family: sans-serif;
+    font-size: 20px;
+    justify-content: center;
+    line-height: 1em;
+    max-width: 100%;
+    min-width: 20px;
+    padding: 3px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.postAdd:active,
+.postAdd:hover {
+    outline: 0;
+}
+
+.postAdd span {
+    background-color: var(--bgSoft);
+    padding: 12px 18px;
+    border-radius: 6px;
+    width: 100%;
+    height: 100%;
+    transition: 300ms;
+}
+
+.postAdd:hover span {
+    background: none;
+}
+
+@media (min-width: 768px) {
+    .postAdd {
+        font-size: 24px;
+        min-width: 10px;
+    }
+}
+
+/* Button end*/
