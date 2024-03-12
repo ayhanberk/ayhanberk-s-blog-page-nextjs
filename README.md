@@ -1,3 +1,10 @@
+## Website 
+https://ayhanberk-s-blog-page-nextjs.vercel.app/
+
+## for test 
+username: TestUser
+password: test1234
+
 ## Getting Started
 
 First, env Configuration:
