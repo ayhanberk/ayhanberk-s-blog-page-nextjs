@@ -9,12 +9,15 @@ import UploadImage from "@/helpers/functions/uploadImage";
 
 export const addPost = async (prevState, formData) => {
     const { title, body, slug, userId, img } = Object.fromEntries(formData)
+
     const imgName = await UploadImage(img, "uploads")
+
     if (!imgName.success) {
         return { error: imgName.error }
     }
 
     const emptyColor = RandomColor();
+
     try {
         connect2mongodb();
         const newPost = new Post({

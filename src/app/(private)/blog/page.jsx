@@ -1,6 +1,7 @@
 import PostCard from "@/components/posts/postCard/postCard"
 import styles from "./blog.module.css"
 import { getPosts } from "@/lib/data";
+import EmptyPage from "@/components/pagehelpers/empty/emptyPage";
 
 
 export const metadata = {
@@ -12,15 +13,20 @@ export const metadata = {
 const BlogPage = async () => {
     const posts = await getPosts();
 
+    console.log("POSTs", posts)
+
 
     return (
-        <div className={styles.container}>
-            {posts.map((post) => (
-                <div className={styles.post} key={post.slug} >
-                    <PostCard post={post} />
-                </div>
-            ))}
-        </div >
+        <>
+            {posts == "" ? (<EmptyPage />) : (<div className={styles.container}>
+                {posts.map((post) => (
+                    <div className={styles.post} key={post.slug} >
+                        <PostCard post={post} />
+                    </div>
+                ))}
+            </div >
+            )}
+        </>
     )
 }
 

@@ -1,20 +1,22 @@
 // import path from "path";
-import fs from "fs";
+// import fs from "fs";
 // import { writeFile } from "fs/promises";
 import { randomUUID } from "crypto";
 import { put } from "@vercel/blob";
 
 
 const UploadImage = async (file, type) => {
+
+    if (file.name === "undefined") {
+        return { success: true, filename: false, url: false }
+    }
+
     const dir = `public/${type}/`;
 
     const buffer = Buffer.from(await file.arrayBuffer());
     const filename = type.toUpperCase() + "_" + new Date().toISOString().split('T')[0].toString() + "_" + randomUUID().toString() + "_" + file.name.replaceAll(" ", "_");
 
-
-
     try {
-
         // if (!fs.existsSync(dir)) {
         //     fs.mkdirSync(dir);
         // }

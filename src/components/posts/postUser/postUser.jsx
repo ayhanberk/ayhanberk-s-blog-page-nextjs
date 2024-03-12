@@ -5,11 +5,12 @@ import { getUser } from "@/lib/data"
 const PostUser = async ({ userId }) => {
 
     const user = await getUser(userId);
+    console.log(user)
     return (
         <div className={styles.container}>
             <Image
                 className={styles.avatar}
-                src={user.user_avatar || "https://placehold.co/50@2x.png"}
+                src={user.user_avatar}
                 alt="avatar"
                 width={50}
                 height={50} />

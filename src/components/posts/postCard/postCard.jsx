@@ -9,9 +9,7 @@ const PostCard = ({ post }) => {
         <div className={styles.container}>
             <div className={styles.top}>
                 <Link href={`/blog/${post.slug}`} className={styles.imgContainer}>
-                    {/* <div className={styles.imgContainer}> */}
                     <Image src={post.img} alt="blog-post" fill className={styles.img} sizes="100%" />
-                    {/* </div> */}
                 </Link>
                 <span className={styles.date}>{post.createdAt.toString().slice(0, 10)}</span>
             </div>
