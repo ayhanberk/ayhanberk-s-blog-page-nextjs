@@ -17,7 +17,6 @@ const ContactPage = () => {
                     src={"/contactlastbanner.png"}
                     alt="contact image"
                     className={styles.img}
-                    sizes="100%"
                     fill />
 
             </div>

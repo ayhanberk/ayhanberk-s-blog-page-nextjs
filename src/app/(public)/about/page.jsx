@@ -31,16 +31,15 @@ const AboutPage = () => {
                         <h2>10 K+</h2>
                         <p>Lorem ipsum dolor sit.</p>
                     </div>
-
                 </div>
             </div>
             <div className={styles.imgContainer}>
                 <Image
                     src={"/aboutpagebanner.png"}
                     alt="picture for about"
-                    sizes="100%"
-                    fill
                     className={styles.img}
+                    sizes="90%"
+                    fill
                 />
             </div>
 

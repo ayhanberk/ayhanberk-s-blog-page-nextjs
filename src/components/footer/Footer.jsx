@@ -6,8 +6,7 @@ const Footer = () => {
     return (
         <footer className={styles.container}>
             <Link href={"/"} className={styles.logo}>
-                <div className={styles.imgContainer}><Image src={"/Logo.png"} alt="web logo" fill
-                    sizes="100%"
+                <div className={styles.imgContainer}><Image src={"/Logo.png"} alt="web logo" fill sizes="85%"
                 /></div>
             </Link>
             <div className={styles.text}>

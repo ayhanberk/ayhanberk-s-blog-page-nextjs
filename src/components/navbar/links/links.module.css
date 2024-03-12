@@ -28,6 +28,9 @@
     height: 30px;
     padding: 0;
     margin: 0;
+    position: relative;
+    z-index: 999;
+
 }
 
 .menuButton span {
@@ -41,10 +44,13 @@
     background-color: white;
 }
 
+
 .menuButton,
-.mobileLinks {
+.mobileLinks,
+.cover {
     display: none;
 }
+
 
 .adminNlogout {
     display: flex;
@@ -53,6 +59,13 @@
 }
 
 .session {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.userCheck {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -93,10 +106,34 @@
     transform: translate(-100%, 0);
 }
 
+.cover.turn {
+    transition: transform 1s;
+    -webkit-transition: transform 1s;
+    transform: translate(0, 0);
+}
+
+.cover.return {
+    transition: transform 1s;
+    -webkit-transition: transform 1s;
+    transform: translate(-100%, 0);
+}
+
 
 @media (max-width: 768px) {
     .links {
         display: none;
+    }
+
+    .cover {
+        background-color: transparent;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: calc(100vh);
+        display: flex;
+        z-index: 99;
+
     }
 
     .mobileLinks {
@@ -110,8 +147,9 @@
         flex-direction: column;
         align-items: center;
         gap: 10px;
-        z-index: 998;
         transition: width 1s;
+        z-index: 100;
+
     }
 
 
@@ -137,14 +175,15 @@
         align-items: center;
         justify-content: center;
         gap: 15px;
+        z-index: 991;
     }
 
     .session {
         position: absolute;
         width: 100%;
-        left: 0;
-        bottom: 0;
-        transform: translate(0, -50%);
+        left: 50%;
+        top: 0;
+        transform: translate(-50%, 100%);
         display: flex;
         align-items: center;
         justify-content: center;

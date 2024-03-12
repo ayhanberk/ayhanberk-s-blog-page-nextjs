@@ -57,7 +57,35 @@
 }
 
 @media (max-width: 768px) {
-    .imgContainer {
-        display: none;
+    .container {
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
     }
+
+    .textContainer {
+        gap: 20px;
+        margin-bottom: 50px;
+    }
+
+    .img {
+        position: relative !important;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .content {
+        font-size: 12px;
+    }
+
+    .detailTitle {
+        font-size: 14px;
+    }
+
+    .detailValue {
+        font-size: 10px;
+    }
+
 }

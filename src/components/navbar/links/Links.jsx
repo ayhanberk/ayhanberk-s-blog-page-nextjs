@@ -36,23 +36,25 @@ const Links = ({ session }) => {
                     <NavLink item={link} key={link.title} />
                 ))}
                 <div className={styles.session}>
-                    {session?.user ? (
+                    {session?.user ? (<>
                         <div className={styles.adminNlogout}>
                             {session.user?.isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />}
                             <form action={handleLogout} className={styles.logOutForm}>
                                 <button className={styles.logout}>LOG OUT</button>
                             </form>
+                            <div className={styles.avatarContainer}>
+                                <Image
+                                    className={styles.avatar}
+                                    src={session.user.user_avatar}
+                                    alt="avatar"
+                                    fill
+                                    sizes="90%" />
+                            </div>
                         </div>
+                    </>
                     ) : (
                         <NavLink item={{ title: "Login", path: "/login" }} />
                     )}
-                    {session?.user ? (<div className={styles.avatarContainer}>
-                        <Image
-                            className={styles.avatar}
-                            src={session.user.user_avatar}
-                            alt="avatar"
-                            fill />
-                    </div>) : null}
                 </div>
 
             </div>
@@ -61,34 +63,38 @@ const Links = ({ session }) => {
                 <span />
                 <span />
             </button>
-            {<div className={styles.mobileLinks + ` ${open ? styles.turn : styles.return}`}>
-                <div className={styles.menuLinks}>
-                    {
-                        links.map((link) => (
-                            <NavLink item={link} key={link.title} />
-                        ))
-                    }
-                </div>
+            {<div onClick={() => (setOpen((prev) => !prev))} className={styles.cover + ` ${open ? styles.turn : styles.return}`}>
+                <div className={styles.mobileLinks + ` ${open ? styles.turn : styles.return}`}>
+                    <div className={styles.menuLinks}>
+                        {
+                            links.map((link) => (
+                                <NavLink item={link} key={link.title} />
+                            ))
+                        }
+                    </div>
 
-                <div className={styles.session}>
+                    <div className={styles.session}>
+                        {session?.user ? (<>
+                            <div className={styles.userCheck}>
+                                <div className={styles.avatarContainer}>
+                                    <Image
+                                        className={styles.avatar}
+                                        src={session.user.user_avatar}
+                                        alt="avatar"
+                                        fill
+                                        sizes="90%" />
+                                </div>
+                                <form action={handleLogout} className={styles.logOutForm}>
+                                    <button className={styles.logout}>LOG OUT</button>
+                                </form>
+                            </div>
+                            {session.user?.isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />}
 
-                    {session?.user ? (<div className={styles.avatarContainer}>
-                        <Image
-                            className={styles.avatar}
-                            src={session.user.user_avatar}
-                            alt="avatar"
-                            fill />
-                    </div>) : null}
-
-                    {session?.user ? (<>
-                        {session.user?.isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />}
-                        <form action={handleLogout} className={styles.logOutForm}>
-                            <button className={styles.logout}>LOG OUT</button>
-                        </form>
-                    </>
-                    ) : (
-                        <NavLink item={{ title: "Login", path: "/login" }} />
-                    )}
+                        </>
+                        ) : (
+                            <NavLink item={{ title: "Login", path: "/login" }} />
+                        )}
+                    </div>
                 </div>
             </div>}
         </div>
