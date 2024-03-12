@@ -16,8 +16,13 @@ export default function Home() {
             Cumque laborum dolores aliquid hic, sunt doloribus asperiores harum placeat debitis magnam!
           </p>
           <div className={styles.buttons}>
-            <button className={styles.button}>Learn More</button>
-            <button className={styles.button}>Contact</button>
+            {/* <button className={styles.button}>Learn More</button> */}
+            <Link href={"/about"} className={styles.button}>
+              Learn More
+            </Link>
+            <Link href={"/contact"} className={styles.button}>
+              Contact
+            </Link>
           </div>
           <div className={styles.brands}>
             <Link href={process.env.GIT_HUB_URL} target="_blank" className={styles.button}>
