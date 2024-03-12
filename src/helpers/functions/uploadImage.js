@@ -26,7 +26,6 @@ const UploadImage = async (file, type) => {
         });
         // const { url } = await put(`public/${type}/` + filename, buffer, { access: 'public' });
 
-        console.log(url)
         // await writeFile(
         //     path.join(process.cwd(), `public/${type}/` + filename),
         //     buffer

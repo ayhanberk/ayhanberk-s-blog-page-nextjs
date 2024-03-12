@@ -30,7 +30,13 @@
 
 @media (max-width: 768px) {
     .container {
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        z-index: 999;
     }
 
     .imgContainer {

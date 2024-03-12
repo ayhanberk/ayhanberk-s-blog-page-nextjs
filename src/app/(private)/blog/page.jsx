@@ -13,9 +13,6 @@ export const metadata = {
 const BlogPage = async () => {
     const posts = await getPosts();
 
-    console.log("POSTs", posts)
-
-
     return (
         <>
             {posts == "" ? (<EmptyPage />) : (<div className={styles.container}>
