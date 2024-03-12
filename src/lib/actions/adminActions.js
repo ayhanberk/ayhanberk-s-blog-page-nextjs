@@ -17,6 +17,7 @@ export const addUser = async (previousState, formData) => {
     const hashedPassword = await bcrypt.hash(password, salt);
     const emptyColor = RandomColor();
 
+    console.log(avatarName)
     try {
         connect2mongodb();
         const newUser = new User({
