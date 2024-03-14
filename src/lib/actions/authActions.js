@@ -4,6 +4,7 @@ import { signIn, signOut } from "../auth";
 import { connect2mongodb } from "../dbs/connect2mongodb";
 import { User } from "../models/models";
 import bcrypt from 'bcryptjs';
+import UploadImage from "@/helpers/functions/uploadImage";
 
 export const handleFormLogin = async () => {
     "use server"
@@ -28,14 +29,22 @@ export const handleRegister = async (previousState, formData) => {
         if (user) {
             return { error: "Username already exists" };
         }
-        const emptyColor = RandomColor();
+
+        const avatarName = await UploadImage(avatar, "avatars");
+
+        if (!avatarName.success) {
+            return { error: avatarName.error }
+        }
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
+        const emptyColor = RandomColor();
+
         const newUser = new User({
             username,
             email,
             password: hashedPassword,
-            user_avatar: avatar || `https://placehold.co/600x400/${emptyColor}/${emptyColor}.png?text=avatar`
+            // user_avatar: avatarName.filename || `https://placehold.co/600x400/${emptyColor}/${emptyColor}.png`,
+            user_avatar: avatarName.url || `https://placehold.co/600x400/${emptyColor}/${emptyColor}.png`,
         })
 
         await newUser.save();
