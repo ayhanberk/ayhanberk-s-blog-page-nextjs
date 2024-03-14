@@ -14,7 +14,7 @@ const AdminUserFrom = () => {
 
             </div>
             <div className={styles.inputBox}>
-                <input type="email" name="email" required />
+                <input type="email" name="email" required inputMode="email" />
                 <label htmlFor="">Email<span>*</span></label>
 
             </div>
@@ -24,7 +24,6 @@ const AdminUserFrom = () => {
 
             </div>
             <div className={styles.inputBox}>
-                {/* <input type="text" name="avatar" /> */}
                 <input type="file" name="avatar" accept="image/png, image/jpeg" />
                 <label htmlFor="">Profile Photo</label>
             </div>
