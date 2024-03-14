@@ -58,6 +58,13 @@
     content: "Loading..."
 }
 
+.form input.error,
+.form textarea.error {
+    border-radius: 5px;
+    border: 2px solid red;
+    outline: 1px solid red;
+}
+
 @keyframes loading {
     to {
         background-position: 80% 100%

@@ -1,43 +1,54 @@
 "use client"
 import styles from "./contactForm.module.css"
-import { useFormState } from "react-dom"
-import { sendContactMessage } from "@/lib/actions/contactActions";
-import { useState } from "react";
+import { useFormState, useFormStatus } from "react-dom"
+import { SendMessageToAyhan } from "@/lib/actions/contactActions";
+import { useEffect, useRef, useState } from "react";
 
-const ContactForm = () => {
+const ContactForm = ({ user }) => {
+    const formRef = useRef();
 
-    const [states, setStates] = useState({ loading: false, message: null, success: null })
-    // const [state, contactFormAction] = useFormState(sendContactMessage, undefined);
+    const [data, formAction] = useFormState(SendMessageToAyhan, undefined);
+    const [returnData, setReturn] = useState({ success: null, message: null })
 
-    // const clearMessage = () => {
-    //     console.log("burda")
-    //     setStates({ ...states, loading: false, message: null, success: null })
-    // }
-    // const handleSubmit = async () => {
-    //     setStates((prevState) => {
-    //         console.log(prevState)
-    //         return { ...prevState, loading: true }
-    //     })
-    //     console.log(state)
-    //     if (state) {
-    //         setStates((prevState) => ({ ...prevState, loading: false, message: state.message, success: state.success }))
-    //         setTimeout(clearMessage, 5000)
-    //     }
-    // }
+    useEffect(() => {
+        if (data?.success == true) {
+            formRef.current?.reset();
+        }
+
+        if (data) {
+            setReturn(data);
+            setTimeout(clearTimeout, 3000);
+        }
+
+    }, [data])
 
 
-
+    function clearTimeout() {
+        return setReturn({});
+    }
 
     return (
-        <form action={sendContactMessage} className={styles.form}>
-            <input type="text" placeholder="Name and Surname" name="name" />
-            <input type="text" placeholder="Email Address" inputMode="email" name="email" />
+        <form action={formAction} className={styles.form} ref={formRef}>
+            <input type="text" placeholder="Name and Surname" name="name" className={returnData.errors?.name ? styles.error : ""} defaultValue={user?.username ? user.username : null} disabled={user?.username && true} />
+            <input type="text" placeholder="Email Address" inputMode="email" name="email" defaultValue={user?.email ? user.email : null} disabled={user?.email && true} />
             <input type="text" placeholder="Phone Number (Optional)" inputMode="phone" name="phone" />
             <textarea name="message" cols="30" rows="10" placeholder="Message"></textarea>
-            {/* <div className={styles.message}>{states.success && states.message}</div> */}
-            {/* <button onClick={handleSubmit}>{states.loading ? <div className={styles.loader}></div> : "Send Message"}</button> */}
+            <div className={styles.message}>{returnData && returnData?.message}</div>
+            <SubmitAction />
         </form>
     )
 }
+
+function SubmitAction() {
+    const { pending } = useFormStatus();
+
+    return (
+        <button disabled={pending} >
+            {pending ? <div className={styles.loader}></div> : "Send Message"}
+        </button>
+    )
+
+}
+
 
 export default ContactForm

@@ -38,7 +38,6 @@ const UploadImage = async (file, type) => {
 
         }
     } catch (error) {
-        console.log("Error occured ", error);
         return { success: false, error: "image upload error" }
     }
 
