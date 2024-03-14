@@ -9,8 +9,8 @@
 .logo {
     font-size: 30px;
     font-weight: bold;
-    z-index: 999;
     display: flex;
+    z-index: 89;
     width: 100px;
     justify-content: center;
     align-items: center;
@@ -35,9 +35,6 @@
         align-items: center;
     }
 
-    .logo {
-        z-index: 999;
-    }
 
     .imgContainer {
         width: 50px;
