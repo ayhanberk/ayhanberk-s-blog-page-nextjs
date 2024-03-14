@@ -14,7 +14,7 @@ const LoginForm = () => {
                 <h1>Login</h1>
                 <div className={styles.inputbox}>
                     <input type="text" name="username" required />
-                    <label htmlFor="">Email</label>
+                    <label htmlFor="">Username</label>
                 </div>
                 <div className={styles.inputbox}>
                     <input type="password" name="password" required />

@@ -4,6 +4,7 @@ import styles from "./links.module.css"
 import NavLink from "./navLink/navLink"
 import Image from "next/image"
 import { handleLogout } from "@/lib/actions/authActions"
+import Link from "next/link"
 
 const links = [
     {
@@ -64,7 +65,18 @@ const Links = ({ session }) => {
                 <span />
             </button>
             {<div onClick={() => (setOpen((prev) => !prev))} className={styles.cover + ` ${open ? styles.turn : styles.return}`}>
+
                 <div className={styles.mobileLinks + ` ${open ? styles.turn : styles.return}`}>
+                    <Link href={"/"} className={styles.logo}>
+                        <Image
+                            src={"/Logo.png"}
+                            alt="web-nav-logo"
+                            className={styles.img}
+                            sizes="85%"
+                            fill
+                        />
+                    </Link>
+
                     <div className={styles.menuLinks}>
                         {
                             links.map((link) => (

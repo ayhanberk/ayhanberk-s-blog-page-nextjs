@@ -15,7 +15,7 @@ const Navbar = async () => {
                         src={"/Logo.png"}
                         alt="web-nav-logo"
                         className={styles.img}
-                        sizes="90%"
+                        sizes="85%"
                         fill
                     />
                 </div>

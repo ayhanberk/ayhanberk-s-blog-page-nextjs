@@ -1,6 +1,6 @@
 .registerForm {
     position: relative;
-    width: 30%;
+    width: 400px;
     height: 50%;
     background-color: transparent;
     border: 2px solid rgba(255, 255, 255, 0.5);
@@ -23,7 +23,7 @@
 .inputbox {
     position: relative;
     margin: 20px 0;
-    width: 310px;
+    width: 65%;
     border-bottom: 2px solid #fff;
     border-bottom-style: ridge;
 
@@ -48,13 +48,13 @@
 
 .inputbox input {
     width: calc(100% - 10px);
-    height: 30px;
+    height: 25px;
     background: transparent;
     border: none;
     outline: none;
     font-size: 1rem;
     border-radius: 10px 10px 0 0;
-    padding: 0 0 0 10px;
+    padding: 10px 10px 0 10px;
     color: #fff;
 }
 
@@ -72,6 +72,9 @@
     font-size: 1rem;
     font-weight: 600;
     transition: all 0.4s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 30px;
     color: var(--bgSoft);
 }
@@ -103,4 +106,21 @@
 
 .sendToLogin b:hover {
     text-decoration: underline;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .registerForm {
+        width: 100%;
+
+    }
+
+    .inputbox {
+        width: 200px;
+    }
+
+    .inputbox input {
+        font-size: 0.75rem;
+    }
 }

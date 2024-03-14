@@ -27,7 +27,7 @@ const RegisterForm = () => {
                 <label htmlFor="">Username</label>
             </div>
             <div className={styles.inputbox}>
-                <input type="email" name="email" required />
+                <input type="email" name="email" required inputMode="email" />
                 <label htmlFor="">Email</label>
             </div>
             <div className={styles.inputbox}>
@@ -39,8 +39,8 @@ const RegisterForm = () => {
                 <label htmlFor="">Password Again</label>
             </div>
             <div className={styles.inputbox}>
-                <input type="text" name="avatar" placeholder="" />
-                <label htmlFor="">Avatar Url</label>
+                <input type="file" name="avatar" accept="image/png, image/jpeg" />
+                <label htmlFor="">Profile Photo</label>
             </div>
             <button className={styles.registerButton}>Register</button>
             <div className={styles.errorHandler}>
