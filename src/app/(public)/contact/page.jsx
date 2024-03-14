@@ -1,5 +1,7 @@
 import Image from "next/image"
 import styles from "./contact.module.css"
+import ContactForm from "@/components/forms/contactForm/contactForm"
+import { auth } from "@/lib/auth"
 
 
 export const metadata = {
@@ -7,8 +9,9 @@ export const metadata = {
     description: "Ayhan Berk's Contact Page with nextjs",
 }
 
-const ContactPage = () => {
+const ContactPage = async () => {
 
+    const session = await auth();
 
     return (
         <div className={styles.container}>
@@ -21,13 +24,7 @@ const ContactPage = () => {
 
             </div>
             <div className={styles.formContainer}>
-                <form action="" className={styles.form}>
-                    <input type="text" placeholder="Name and Surname" />
-                    <input type="text" placeholder="Email Address" />
-                    <input type="text" placeholder="Phone Number (Optional)" />
-                    <textarea name="" id="" cols="30" rows="10" placeholder="Message"></textarea>
-                    <button>Send Message</button>
-                </form>
+                <ContactForm session={session?.user} />
             </div>
         </div>
     )
