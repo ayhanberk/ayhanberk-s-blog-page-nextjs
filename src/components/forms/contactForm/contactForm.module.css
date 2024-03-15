@@ -44,6 +44,13 @@
     padding: 5px;
 }
 
+.form input.error,
+.form textarea.error {
+    border-radius: 5px;
+    border: 2px solid red;
+    outline: 1px solid red;
+}
+
 .loader {
     width: fit-content;
     font-weight: bold;
@@ -58,12 +65,6 @@
     content: "Loading..."
 }
 
-.form input.error,
-.form textarea.error {
-    border-radius: 5px;
-    border: 2px solid red;
-    outline: 1px solid red;
-}
 
 @keyframes loading {
     to {

@@ -1,7 +1,7 @@
 "use client"
 import { handleRegister } from "@/lib/actions/authActions"
 import styles from "./registerForm.module.css"
-import { useFormState } from "react-dom"
+import { useFormState, useFormStatus } from "react-dom"
 import { useEffect } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
@@ -42,7 +42,7 @@ const RegisterForm = () => {
                 <input type="file" name="avatar" accept="image/png, image/jpeg" />
                 <label htmlFor="">Profile Photo</label>
             </div>
-            <button className={styles.registerButton}>Register</button>
+            <RegisterButton />
             <div className={styles.errorHandler}>
                 {state?.error}
             </div>
@@ -51,6 +51,17 @@ const RegisterForm = () => {
             </span>
         </form>
     )
+}
+
+function RegisterButton() {
+    const { pending } = useFormStatus();
+
+    return (
+        <button disabled={pending} className={styles.registerButton}>
+            {pending ? <div className={styles.loader}></div> : "Register"}
+        </button>
+    )
+
 }
 
 export default RegisterForm

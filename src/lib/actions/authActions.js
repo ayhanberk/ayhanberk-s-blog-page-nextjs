@@ -48,7 +48,7 @@ export const handleRegister = async (previousState, formData) => {
         })
 
         await newUser.save();
-        Ş("new User Created...")
+        console.log("new User Created...")
         return { success: "User created" }
 
     } catch (err) {

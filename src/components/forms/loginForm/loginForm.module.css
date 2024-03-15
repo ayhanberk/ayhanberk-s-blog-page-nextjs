@@ -115,6 +115,9 @@
     border: none;
     outline: none;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 1rem;
     font-weight: 600;
     transition: all 0.4s ease;
@@ -128,4 +131,27 @@
 
 .logIn:hover {
     background-color: rgb(255, 255, 255, 0.5);
+}
+
+.loader {
+    width: fit-content;
+    font-weight: bold;
+    font-family: sans-serif;
+    justify-self: center;
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 600;
+    padding-bottom: 5px;
+    background: repeating-linear-gradient(90deg, currentColor 0 8%, #0000 0 10%) 200% 100%/200% 3px no-repeat;
+    animation: loading 2s steps(6) infinite;
+}
+
+.loader:before {
+    content: "logging in..."
+}
+
+@keyframes loading {
+    to {
+        background-position: 80% 100%
+    }
 }

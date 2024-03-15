@@ -1,6 +1,6 @@
 "use client"
 import styles from "./adminUserForm.module.css"
-import { useFormState } from "react-dom";
+import { useFormState, useFormStatus } from "react-dom"
 import { addUser } from "@/lib/actions/adminActions";
 
 const AdminUserFrom = () => {
@@ -35,9 +35,20 @@ const AdminUserFrom = () => {
                 </select>
             </div>
 
-            <button className={styles.userAdd}><span>Add</span></button>
+            <AddUserButton />
             {state && state.error}
         </form>
     )
+}
+
+function AddUserButton() {
+    const { pending } = useFormStatus();
+
+    return (
+        <button disabled={pending} className={styles.userAdd}>
+            {pending ? <span><div className={styles.loader}></div></span> : <span>{"Add User"}</span>}
+        </button>
+    )
+
 }
 export default AdminUserFrom

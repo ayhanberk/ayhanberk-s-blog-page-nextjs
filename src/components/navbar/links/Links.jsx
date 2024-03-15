@@ -49,7 +49,7 @@ const Links = ({ session }) => {
                                     src={session.user.user_avatar}
                                     alt="avatar"
                                     fill
-                                    sizes="90%" />
+                                    sizes="75%" />
                             </div>
                         </div>
                     </>
@@ -72,7 +72,7 @@ const Links = ({ session }) => {
                             src={"/Logo.png"}
                             alt="web-nav-logo"
                             className={styles.img}
-                            sizes="85%"
+                            sizes="75%"
                             fill
                         />
                     </Link>
@@ -94,7 +94,7 @@ const Links = ({ session }) => {
                                         src={session.user.user_avatar}
                                         alt="avatar"
                                         fill
-                                        sizes="90%" />
+                                        sizes="75%" />
                                 </div>
                                 <form action={handleLogout} className={styles.logOutForm}>
                                     <button className={styles.logout}>LOG OUT</button>

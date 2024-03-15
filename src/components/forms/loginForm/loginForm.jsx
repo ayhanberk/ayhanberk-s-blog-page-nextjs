@@ -1,7 +1,7 @@
 "use client"
 import { handleLogin } from "@/lib/actions/authActions";
 import styles from "./loginForm.module.css"
-import { useFormState } from "react-dom"
+import { useFormState, useFormStatus } from "react-dom"
 import Link from "next/link";
 
 const LoginForm = () => {
@@ -26,7 +26,7 @@ const LoginForm = () => {
                 <div className={styles.errorHandler}>
                     {state?.error}
                 </div>
-                <button className={styles.logIn}>Log in</button>
+                <LoginButton />
                 <div className={styles.register}>
                     <Link href={"/forgot-password"}>
                         Forget Password?
@@ -37,6 +37,17 @@ const LoginForm = () => {
             </form>
         </div>
     )
+}
+
+function LoginButton() {
+    const { pending } = useFormStatus();
+
+    return (
+        <button disabled={pending} className={styles.logIn}>
+            {pending ? <div className={styles.loader}></div> : "Login"}
+        </button>
+    )
+
 }
 
 export default LoginForm

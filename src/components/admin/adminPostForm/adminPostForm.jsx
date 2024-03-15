@@ -1,7 +1,7 @@
 "use client"
 import { addPost } from "@/lib/actions/postActions";
 import styles from "./adminPostForm.module.css";
-import { useFormState } from "react-dom";
+import { useFormState, useFormStatus } from "react-dom"
 
 
 const AdminPostForm = ({ userId }) => {
@@ -27,10 +27,21 @@ const AdminPostForm = ({ userId }) => {
                 <textarea type="text" name="body" rows={10} required />
                 <label htmlFor="">Description<span>*</span></label>
             </div>
-            <button className={styles.postAdd}><span>Add</span></button>
+            <PostAddButton />
             {state && state.error}
         </form>
     )
+}
+
+function PostAddButton() {
+    const { pending } = useFormStatus();
+
+    return (
+        <button disabled={pending} className={styles.postAdd}>
+            {pending ? <span><div className={styles.loader}></div></span> : <span>{"Add Post"}</span>}
+        </button>
+    )
+
 }
 
 export default AdminPostForm
