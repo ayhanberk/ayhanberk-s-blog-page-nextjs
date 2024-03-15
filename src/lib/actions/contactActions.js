@@ -3,11 +3,21 @@
 import { connect2mongodb } from "../dbs/connect2mongodb";
 import { revalidatePath } from "next/cache";
 import { Contact } from "../models/models";
+import { auth } from "../auth";
 
 
 
 export const SendMessageToAyhan = async (prevState, formData) => {
     const { name, email, phone, message } = Object.fromEntries(formData)
+    let namedef = name;
+    let emaildef = email;
+    if (name === undefined && email === undefined) {
+        const session = await auth();
+        namedef = session.user.username;
+        emaildef = session.user.email;
+
+    }
+
 
     try {
 
@@ -15,8 +25,8 @@ export const SendMessageToAyhan = async (prevState, formData) => {
         connect2mongodb();
 
         const newContact = new Contact({
-            name,
-            email,
+            name: namedef,
+            email: emaildef,
             phone,
             message,
         })

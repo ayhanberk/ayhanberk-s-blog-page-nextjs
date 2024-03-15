@@ -4,7 +4,6 @@ import { getContactMessage } from "@/lib/actions/contactActions";
 
 const AdminContact = async () => {
     const data = await getContactMessage();
-    console.log(data._id)
 
     return (
         <div className={styles.container}>
