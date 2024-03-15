@@ -30,7 +30,7 @@ const ContactForm = ({ user }) => {
     return (
         <form action={formAction} className={styles.form} ref={formRef}>
             <input type="text" placeholder="Name and Surname" name="name" className={returnData.errors?.name ? styles.error : ""} defaultValue={user?.username ? user.username : null} disabled={user?.username && true} />
-            <input type="text" placeholder="Email Address" inputMode="email" name="email" defaultValue={user?.email ? user.email : null} disabled={user?.email && true} />
+            <input type="email" placeholder="Email Address" inputMode="email" name="email" defaultValue={user?.email ? user.email : null} disabled={user?.email && true} />
             <input type="text" placeholder="Phone Number (Optional)" inputMode="phone" name="phone" />
             <textarea name="message" cols="30" rows="10" placeholder="Message"></textarea>
             <div className={styles.message}>{returnData && returnData?.message}</div>

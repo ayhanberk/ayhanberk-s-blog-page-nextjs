@@ -12,6 +12,10 @@ export const metadata = {
 const ContactPage = async () => {
 
     const session = await auth();
+    let userData = { user: null };
+    if (session) {
+        userData.user = session.user;
+    }
 
     return (
         <div className={styles.container}>
@@ -24,7 +28,7 @@ const ContactPage = async () => {
 
             </div>
             <div className={styles.formContainer}>
-                <ContactForm session={session?.user} />
+                <ContactForm user={userData.user} />
             </div>
         </div>
     )
