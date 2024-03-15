@@ -20,16 +20,16 @@ const AboutPage = () => {
                 </p>
                 <div className={styles.boxes}>
                     <div className={styles.box}>
-                        <h2>10 K+</h2>
-                        <p>Lorem ipsum dolor sit.</p>
+                        <h2>Workin</h2>
+                        <p>React</p>
                     </div>
                     <div className={styles.box}>
-                        <h2>10 K+</h2>
-                        <p>Lorem ipsum dolor sit.</p>
+                        <h2>Newbie</h2>
+                        <p>NextJs</p>
                     </div>
                     <div className={styles.box}>
-                        <h2>10 K+</h2>
-                        <p>Lorem ipsum dolor sit.</p>
+                        <h2>Always</h2>
+                        <p>Learning</p>
                     </div>
                 </div>
             </div>
