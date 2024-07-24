@@ -1,6 +1,13 @@
 import Image from "next/image";
 import styles from "./home.module.css"
 import Link from "next/link";
+
+import { Metadata } from 'next';
+ 
+export const metadata: Metadata = {
+  "parabirimleri-api": '3Co0Ta7ZkGYPWuz4ufkV2xqnebmafCII',
+};
+
 export default function Home() {
   return (
     <>
