@@ -13,7 +13,7 @@ export const metadata = {
     template: "Ayhan Berk's | %s Page"
   },
   description: "Ayhan Berk's Blog Page Example",
-  "parabirimleri-api": '3Co0Ta7ZkGYPWuz4ufkV2xqnebmafCII',
+  other: { "parabirimleri-api":'3Co0Ta7ZkGYPWuz4ufkV2xqnebmafCII'},
 };
 
 
